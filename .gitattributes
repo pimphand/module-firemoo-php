@@ -1,0 +1,65 @@
+* text=auto eol=lf
+
+*.blade.php diff=html
+*.css diff=css
+*.html diff=html
+*.md diff=markdown
+*.php diff=php
+
+# ============================================
+# EXCLUDE LARAVEL PROJECT FILES FROM PACKAGE
+# ============================================
+# File berikut akan diabaikan saat package di-export/distribute
+# Hanya file di folder src/, config/firemoo.php, dan tests/ yang akan di-include
+
+# Laravel Application Files
+/app/ export-ignore
+/artisan export-ignore
+/routes/ export-ignore
+/database/ export-ignore
+/storage/ export-ignore
+/public/ export-ignore
+/resources/ export-ignore
+/bootstrap/ export-ignore
+
+# Laravel Config Files (kecuali firemoo.php)
+/config/app.php export-ignore
+/config/auth.php export-ignore
+/config/cache.php export-ignore
+/config/database.php export-ignore
+/config/filesystems.php export-ignore
+/config/logging.php export-ignore
+/config/mail.php export-ignore
+/config/queue.php export-ignore
+/config/services.php export-ignore
+/config/session.php export-ignore
+
+# Laravel Build Files
+vite.config.js export-ignore
+package.json export-ignore
+package-lock.json export-ignore
+composer.laravel.json export-ignore
+
+# Dependencies
+/vendor/ export-ignore
+/node_modules/ export-ignore
+
+# Environment
+.env export-ignore
+.env.* export-ignore
+!.env.example
+
+# Cache & Logs
+*.log export-ignore
+*.cache export-ignore
+.phpunit.result.cache export-ignore
+/coverage/ export-ignore
+
+# IDE
+/.idea/ export-ignore
+/.vscode/ export-ignore
+
+# Other
+/.github/ export-ignore
+CHANGELOG.md export-ignore
+.styleci.yml export-ignore

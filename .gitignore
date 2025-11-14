@@ -1,0 +1,113 @@
+# ============================================
+# PACKAGE REPOSITORY .gitignore
+# ============================================
+# File ini mengabaikan semua file yang TIDAK BOLEH
+# di-push ke repository package.
+# Hanya file package di folder src/ dan config/firemoo.php yang boleh di-push.
+# ============================================
+
+# ============================================
+# Dependencies (TIDAK BOLEH di-push)
+# ============================================
+/vendor/
+/node_modules/
+composer.lock              # Opsional: bisa di-push untuk consistency
+
+# ============================================
+# Laravel Application Files (TIDAK BOLEH)
+# ============================================
+# Folder Laravel app - tidak boleh ada di package
+/app/
+/artisan
+/routes/
+/database/
+/storage/
+/public/
+/resources/
+/bootstrap/                # Laravel bootstrap folder
+!bootstrap/cache/.gitignore
+
+# ============================================
+# Laravel Config Files (Kecuali firemoo.php)
+# ============================================
+# Hanya config/firemoo.php yang boleh di-push
+# Pastikan folder config/ bisa di-track
+!/config/
+/config/*
+# Pastikan config/firemoo.php TIDAK diabaikan
+!/config/firemoo.php
+
+# ============================================
+# Laravel Build & Development Files
+# ============================================
+vite.config.js
+package.json               # Jika untuk Laravel project
+package-lock.json
+composer.laravel.json      # File Laravel project composer
+
+# ============================================
+# Environment & Secrets
+# ============================================
+.env
+.env.*
+!.env.example             # Jika diperlukan
+.env.backup
+auth.json
+
+# ============================================
+# Cache & Logs
+# ============================================
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+/storage/*
+!/storage/.gitignore
+/storage/logs/*
+/storage/framework/*
+*.log
+*.cache
+.phpunit.result.cache
+
+# ============================================
+# Testing
+# ============================================
+/coverage/
+.phpunit.result.cache
+
+# ============================================
+# Build & Distribution
+# ============================================
+/build/
+/dist/
+
+# ============================================
+# IDE Files
+# ============================================
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# ============================================
+# OS Files
+# ============================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================
+# Laravel Specific
+# ============================================
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+
+# ============================================
+# Package Development (Opsional)
+# ============================================
+# Jika ingin tetap track composer.lock, hapus dari atas
+# /composer.lock
+
