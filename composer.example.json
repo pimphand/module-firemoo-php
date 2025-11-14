@@ -1,0 +1,15 @@
+{
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/home/co-026/Project/VueJS/Database/module",
+            "options": {
+                "symlink": false
+            }
+        }
+    ],
+    "require": {
+        "pimphand/firemoo": "@dev"
+    }
+}
+

@@ -17,19 +17,127 @@ Laravel package untuk integrasi dengan Firestore-like API dan WebSocket realtime
 
 ## Installation
 
-Install package via Composer:
+> **⚠️ PENTING:** Package ini belum di-publish ke Packagist. Untuk install, gunakan **Local Path** atau **Git Repository**.
 
-```bash
-composer require your-vendor-name/firemoo
+### Opsi 1: Install via Local Path (Recommended untuk Development)
+
+**Langkah 1:** Tambahkan repository ke `composer.json` di project Laravel Anda:
+
+**Edit `composer.json` di project Laravel Anda**, tambahkan bagian `repositories` (jika belum ada):
+
+```json
+{
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/home/co-026/Project/VueJS/Database/module",
+            "options": {
+                "symlink": false
+            }
+        }
+    ]
+}
 ```
 
-> **⚠️ PENTING:** Ganti `your-vendor-name` dengan vendor name Anda (contoh: username GitHub/GitLab)
+> **⚠️ PENTING:** 
+> - Ganti `/home/co-026/Project/VueJS/Database/module` dengan path absolut ke folder `module/` di sistem Anda
+> - Gunakan `symlink: false` untuk menghindari file Laravel project muncul di vendor
+> - Lihat `composer.example.json` untuk contoh konfigurasi lengkap
 
-Publish config file (optional):
+**Langkah 2:** Install package dengan constraint version:
+
+```bash
+composer require pimphand/firemoo:@dev
+```
+
+> **⚠️ PENTING:** Harus menggunakan constraint `@dev` karena package belum di-publish dan menggunakan `minimum-stability: dev`
+
+### Opsi 2: Install via Git Repository
+
+Jika package sudah di-push ke repository Git:
+
+**Langkah 1:** Tambahkan repository:
+
+```json
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/username/firemoo.git"
+        }
+    ]
+}
+```
+
+**Langkah 2:** Install package:
+
+```bash
+composer require pimphand/firemoo:dev-main
+```
+
+### Opsi 3: Install via Packagist (Jika sudah terpublish)
+
+Jika package sudah terpublish di Packagist:
+
+```bash
+composer require pimphand/firemoo
+```
+
+### Publish Config File
+
+Setelah install, publish config file (optional):
 
 ```bash
 php artisan vendor:publish --tag=firemoo-config
 ```
+
+### Troubleshooting
+
+**Error: "Could not find a version matching minimum-stability (stable)"**
+
+Error ini terjadi karena:
+- Package belum di-publish ke Packagist
+- Composer tidak bisa menemukan package di repository default
+- Constraint version tidak eksplisit
+
+**Solution:** 
+1. **Pastikan sudah menambahkan repository path di `composer.json` project Laravel Anda** (sangat penting!)
+   ```json
+   {
+       "repositories": [
+           {
+               "type": "path",
+               "url": "/home/co-026/Project/VueJS/Database/module",
+               "options": {
+                   "symlink": false
+               }
+           }
+       ]
+   }
+   ```
+
+2. **Gunakan constraint version `@dev` saat install** (WAJIB):
+   ```bash
+   composer require pimphand/firemoo:@dev
+   ```
+   Bukan: `composer require pimphand/firemoo` ❌
+
+3. **Verifikasi path benar:**
+   ```bash
+   # Pastikan path benar
+   ls -la /home/co-026/Project/VueJS/Database/module/composer.json
+   ```
+
+4. Lihat [INSTALLATION.md](INSTALLATION.md) untuk panduan lengkap
+
+**Error: File Laravel project muncul di vendor**
+
+**Solution:**
+1. Gunakan `symlink: false` di repository config
+2. Pastikan `.gitattributes` dan `composer.json` sudah dikonfigurasi dengan benar
+3. Lihat [INSTALLATION.md](INSTALLATION.md) untuk detail
+
+Lihat [INSTALLATION.md](INSTALLATION.md) untuk panduan instalasi lengkap dan troubleshooting.
 
 ## Configuration
 
